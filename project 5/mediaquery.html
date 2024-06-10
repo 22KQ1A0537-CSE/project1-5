@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Player with Audio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #ffffff;
+        }
+        video {
+            width: 80%;
+            max-width: 800px;
+            margin-bottom: 20px;
+        }
+        .controls {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: rgb(3, 14, 168);
+        }
+        .navbar {
+            overflow: hidden;
+            background-color: #ac0909;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+        .navbar a {
+            float: left;
+            display: block;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        .navbar a:hover {
+            background-color: #c9c9c9;
+            color: rgb(76, 11, 88);
+        }
+
+        
+                /*  Smart phone      */
+                  
+                @media screen and (min-width:320px )  {
+
+body {
+     background-color: aqua;
+}
+}
+/*  Tablet,ipad      */    
+
+@media Screen and (min-width:768px) and (max-width:1024px){
+body {
+     background-color: rgb(177, 48, 48);
+}
+}
+
+/* Desktops and Laptops asfsdf     */    
+
+@media Screen and (min-width:1224px) {
+body {
+     background-color: rgb(48, 151, 8);
+}
+}
+
+/* Large Screens---------  */
+@media Screen and (min-width:1824px) {
+body {
+     background-color: rgb(101, 51, 208);
+}
+}
+
+</style>
+
+</head>    </style>
+</head>
+<body style="background-image: url(sun.jpg);">
+    <div class="navbar">
+        <a href="home.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="contactus.html">Contact</a>
+        <a href="login.html">login</a>
+        <a href="mediaquery.html">video</a>
+        <a href="registation.html">registation</a>
+    </div>
+
+
+    <video id="videoPlayer" controls autoplay>
+        <!-- Update the src attribute to the correct path or URL of your video -->
+        <source src="video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    
+    <audio id="audioPlayer" src="audio.mp3"></audio>
+
+    <div class="controls">
+        <button onclick="playMedia()">Play</button>
+        <button onclick="pauseMedia()">Pause</button>
+        <button onclick="muteMedia()">Mute</button>
+        <button onclick="unmuteMedia()">Unmute</button>
+        <button onclick="skipVideo(10)">Skip +10s</button>
+        <button onclick="skipVideo(-10)">Rewind -10s</button>
+    </div>
+
+    <script>
+        const video = document.getElementById('videoPlayer');
+        const audio = document.getElementById('audioPlayer');
+
+        function playMedia() {
+            video.play();
+            audio.play();
+        }
+
+        function pauseMedia() {
+            video.pause();
+            audio.pause();
+        }
+
+        function muteMedia() {
+            video.muted = true;
+            audio.muted = true;
+        }
+
+        function unmuteMedia() {
+            video.muted = false;
+            audio.muted = false;
+        }
+
+        function skipVideo(seconds) {
+            video.currentTime += seconds;
+            audio.currentTime += seconds;
+        }
+    </script>
+
+</body>
+</html>
